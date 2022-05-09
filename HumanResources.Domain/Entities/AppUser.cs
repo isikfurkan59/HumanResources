@@ -22,5 +22,13 @@ namespace HumanResources.Domain.Entities
         public DateTime? UpdateDate { get; set; }
         public DateTime? DeleteDate { get; set; }
         public State State { get; set; }
+
+        // Navigation
+
+        public int DirectorId { get; set; }
+        public Director Director { get; set; }
+
+        public int PersonnelleId { get; set; }
+        public Personnelle Personnelle { get; set; }
     }
 }

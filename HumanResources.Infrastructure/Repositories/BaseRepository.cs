@@ -34,7 +34,7 @@ namespace HumanResources.Infrastructure.Repositories
             await _ds.AddAsync(entity);
         }
 
-        public void Delete(T entity)
+        public virtual void Delete(T entity)
         {
             if (entity.GetType().GetProperty("State") != null)
             {
@@ -56,7 +56,10 @@ namespace HumanResources.Infrastructure.Repositories
             }
         }
 
-        public async Task<IEnumerable<TResult>> GetFilteredList<TResult>(Expression<Func<T, TResult>> select, Expression<Func<T, bool>> where, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null)
+        public async Task<IEnumerable<TResult>> GetFilteredList<TResult>(Expression<Func<T, TResult>> select, 
+            Expression<Func<T, bool>> where, 
+            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, 
+            Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null)
         {
             IQueryable<T> query = _ds;
 
@@ -74,7 +77,10 @@ namespace HumanResources.Infrastructure.Repositories
             return await _ds.FirstOrDefaultAsync(expression);
         }
 
-        public async Task<TResult> GetFirstOrDefault<TResult>(Expression<Func<T, TResult>> select, Expression<Func<T, bool>> where, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null)
+        public async Task<TResult> GetFirstOrDefault<TResult>(Expression<Func<T, TResult>> select, 
+            Expression<Func<T, bool>> where, Func<IQueryable<T>, 
+                IIncludableQueryable<T, object>> include = null, 
+            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null)
         {
             IQueryable<T> query = _ds;
 

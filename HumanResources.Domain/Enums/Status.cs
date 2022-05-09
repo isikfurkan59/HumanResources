@@ -8,6 +8,7 @@ namespace HumanResources.Domain.Enums
 {
     public enum Status
     {
+        Admin,
         Director,
         Personnelle
     }

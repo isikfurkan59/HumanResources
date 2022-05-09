@@ -13,7 +13,6 @@ namespace HumanResources.Infrastructure
 {
     public class AppDbContext : IdentityDbContext<AppUser, AppRole, int>
     {
-        public DbSet<Admin> Admins { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Debit> Debits { get; set; }
@@ -41,7 +40,6 @@ namespace HumanResources.Infrastructure
             builder.ApplyConfiguration(new PaymentConfig());
             builder.ApplyConfiguration(new SpentConfig());
             builder.ApplyConfiguration(new TurnOfWorkConfig());
-            builder.ApplyConfiguration(new AdminConfig());
             builder.ApplyConfiguration(new AppUserConfig());
             builder.ApplyConfiguration(new PersonnelleConfig());
             base.OnModelCreating(builder);

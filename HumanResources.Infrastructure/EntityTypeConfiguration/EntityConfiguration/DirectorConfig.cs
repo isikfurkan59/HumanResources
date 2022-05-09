@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HumanResources.Infrastructure.EntityTypeConfiguration.UserConfiguration
+namespace HumanResources.Infrastructure.EntityTypeConfiguration.EntityConfiguration
 {
-    public class DirectorConfig : UserEntityConfig<Director>
+    public class DirectorConfig : BaseEntityConfig<Director>
     {
         public override void Configure(EntityTypeBuilder<Director> builder)
         {
